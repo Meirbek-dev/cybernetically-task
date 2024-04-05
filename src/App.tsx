@@ -1,5 +1,5 @@
 import "./App.css";
-import Stocks from "./components/stocks";
+import StockTable from "./components/stockTable";
 
 function App() {
   const apiToken = import.meta.env.VITE_IEXCLOUD_API_TOKEN;
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <h1>iex cloud stocks</h1>
-      <Stocks apiUrl={apiUrl} />
+      <StockTable apiUrl={apiUrl} />
     </>
   );
 }

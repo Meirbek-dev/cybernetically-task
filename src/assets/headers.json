@@ -1,0 +1,11 @@
+{
+  "headers": [
+    { "title": "companyName" },
+    { "title": "symbol" },
+    { "title": "primaryExchange" },
+    { "title": "latestPrice" },
+    { "title": "highSource" },
+    { "title": "volume" },
+    { "title": "marketCap" }
+  ]
+}
