@@ -1,6 +1,15 @@
 import axios from "axios";
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
 
 import { setStockData, setCurrentPage } from "../redux/stockSlice";
 import data from "../assets/headers.json";
@@ -53,38 +62,40 @@ const StockTable = ({ apiUrl }: StockTableProps) => {
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            {headers.map(({ title }, index) => (
-              <th key={index}>{title}</th>
-            ))}
-          </tr>
-        </thead>
-
-        <tbody>
-          {visibleStocks.map((stock: Stock, rowIndex: number) => (
-            <tr key={rowIndex}>
-              <td>{firstIndex + rowIndex + 1}</td>
-              {headers.map(({ title }, colIndex) => (
-                <td key={colIndex}>{stock[title]}</td>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>#</TableCell>
+              {headers.map(({ title }, index) => (
+                <TableCell key={index}>{title}</TableCell>
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            </TableRow>
+          </TableHead>
 
-        <PaginationButton
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          text="Previous"
-        />
-        <PaginationButton
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={lastIndex >= stockData.length}
-          text="Next"
-        />
+          <TableBody>
+            {visibleStocks.map((stock: Stock, rowIndex: number) => (
+              <TableRow key={rowIndex}>
+                <TableCell>{firstIndex + rowIndex + 1}</TableCell>
+                {headers.map(({ title }, colIndex) => (
+                  <TableCell key={colIndex}>{stock[title]}</TableCell>
+                ))}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      <PaginationButton
+        onClick={() => handlePageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        text="Previous"
+      />
+      <PaginationButton
+        onClick={() => handlePageChange(currentPage + 1)}
+        disabled={lastIndex >= stockData.length}
+        text="Next"
+      />
     </div>
   );
 };
