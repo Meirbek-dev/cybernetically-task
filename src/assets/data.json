@@ -1,0 +1,12 @@
+{
+  "stocks": [
+    { "": "companyName" },
+    { "": "symbol" },
+    { "": "primaryExchange" },
+    { "": "latestPrice" },
+    { "": "lowSource" },
+    { "": "highSource" },
+    { "": "volume" },
+    { "": "marketCap" }
+  ]
+}
