@@ -53,7 +53,7 @@ const StockTable = ({ apiUrl }: StockTableProps) => {
   const firstIndex = lastIndex - stocksPerPage;
   const visibleStocks = useMemo(
     () => stockData.slice(firstIndex, lastIndex),
-    [stockData, firstIndex, lastIndex]
+    [stockData, firstIndex, lastIndex],
   );
 
   const handlePageChange = (page: number) => {

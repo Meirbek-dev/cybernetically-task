@@ -5,18 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc --skipLibCheck && vite build",
+    "format": "prettier --write .",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
-    "@mui/styled-engine": "^5.15.14",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "react": "^18.2.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
     "redux": "^5.0.1"
@@ -31,6 +30,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "prettier": "^3.2.5",
     "typescript": "^5.4.4",
     "vite": "^5.2.8"
   }
